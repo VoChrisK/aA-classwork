@@ -21,9 +21,15 @@ class KnightPathFinder
         until @root_node == @end_pos
             positions = new_move_positions(@root_node)
             positions.each do |child|
-            move_tree.parent = child
-            move_tree.add_child(child) 
+                move_tree.parent = child
+                move_tree.add_child(child) 
+            end
+            move_tree
         end
+
+
+
+
     end
 
     def generate_positions(pos)
