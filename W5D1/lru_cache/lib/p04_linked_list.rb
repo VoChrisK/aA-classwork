@@ -12,11 +12,6 @@ class Node
   def to_s
     "#{@key}: #{@val}"
   end
-
-  def remove
-    # optional but useful, connects previous link to next link
-    # and removes self from list.
-  end
 end
 
 class LinkedList
@@ -94,7 +89,8 @@ class LinkedList
   end
 
   def each
-    @head.next.val
+    prc = Proc.new { |traverse| yield(traverse) }
+    traverse_list(prc)
   end
 
   private
@@ -108,7 +104,7 @@ class LinkedList
   end
 
   # uncomment when you have `each` working and `Enumerable` included
-  # def to_s
-  #   inject([]) { |acc, link| acc << "[#{link.key}, #{link.val}]" }.join(", ")
-  # end
+  def to_s
+    inject([]) { |acc, link| acc << "[#{link.key}, #{link.val}]" }.join(", ")
+  end
 end
