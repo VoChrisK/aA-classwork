@@ -88,6 +88,11 @@ class LinkedList
     traverse_list(prc, key)
   end
 
+  def remove_node(node)
+    node.prev.next = node.next
+    node.next.prev = node.prev
+  end
+
   def each
     prc = Proc.new { |traverse| yield(traverse) }
     traverse_list(prc)

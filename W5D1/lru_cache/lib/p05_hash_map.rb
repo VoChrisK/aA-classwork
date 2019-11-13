@@ -24,7 +24,9 @@ class HashMap
       change_count(:inc)
     end
 
-    resize!
+    if count >= num_buckets
+      resize!
+    end
   end
 
   def get(key)
@@ -81,20 +83,18 @@ class HashMap
   end
 
   def resize!
-    if @count >= num_buckets
-      double_length = Array.new(num_buckets) { LinkedList.new }
-      current_eles = get_eles_from_buckets!
-      @store.concat(num_buckets)
-      rehash_eles!(current_eles)
-    end
+    double_length = Array.new(num_buckets) { LinkedList.new }
+    current_eles = get_eles_from_buckets!
+    @store.concat(double_length)
+    rehash_eles!(current_eles)
   end
 
   def get_eles_from_buckets!
     current_eles = []
     @store.each do |bucket|
       bucket.each do |list|
-        current_eles << list
-        delete(list)
+        current_eles << [list.key, list.val]
+        delete(list.key)
       end
     end
     current_eles
@@ -102,7 +102,7 @@ class HashMap
 
   def rehash_eles!(current_eles)
     current_eles.each do |ele|
-      set(ele)
+      set(ele[0], ele[1])
     end
   end
 

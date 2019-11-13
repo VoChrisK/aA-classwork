@@ -14,6 +14,14 @@ class LRUCache
   end
 
   def get(key)
+    val = @prc.call(key)
+    if map.include?(key)
+      node = map.get(key) #will give me the node's refernce in LL
+      update_node!(node)
+    else
+      store.append(key, val)
+      map.set(val, store.last)
+    end
   end
 
   def to_s
@@ -28,8 +36,13 @@ class LRUCache
 
   def update_node!(node)
     # suggested helper method; move a node to the end of the list
+    store.remove_node(node)
+    store.append(node.key, node.val)
   end
 
   def eject!
+    
   end
+
+  attr_reader :map, :store
 end
