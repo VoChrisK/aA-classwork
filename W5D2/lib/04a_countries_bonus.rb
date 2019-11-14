@@ -17,6 +17,19 @@ def highest_gdp
   # Which countries have a GDP greater than every country in Europe? (Give the
   # name only. Some countries may have NULL gdp values)
   execute(<<-SQL)
+    SELECT
+      name
+    FROM
+      countries
+    WHERE
+      gdp > (
+        SELECT
+          gdp
+        FROM
+          countries
+        WHERE
+          name = 'Europe'
+      )
   SQL
 end
 
@@ -24,6 +37,18 @@ def largest_in_continent
   # Find the largest country (by area) in each continent. Show the continent,
   # name, and area.
   execute(<<-SQL)
+  SELECT
+    continent, name, area
+  FROM
+    countries
+  WHERE
+    area IN (
+      SELECT
+        max(area)
+      FROM
+        countries
+      GROUP BY
+        continent)
   SQL
 end
 
@@ -31,5 +56,17 @@ def large_neighbors
   # Some countries have populations more than three times that of any of their
   # neighbors (in the same continent). Give the countries and continents.
   execute(<<-SQL)
+  SELECT
+    name, continent
+  FROM
+    countries,
+    (
+      SELECT
+        population*3 AS bigger_population, continent AS bigger_continent
+      FROM
+        countries
+    ) AS bigger
+  WHERE
+    population > bigger_population AND continent = bigger_continent
   SQL
 end

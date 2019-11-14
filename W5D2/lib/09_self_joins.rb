@@ -17,18 +17,34 @@ require_relative './sqlzoo.rb'
 def num_stops
   # How many stops are in the database?
   execute(<<-SQL)
+  SELECT
+    count(*)
+  FROM
+    stops
   SQL
 end
 
 def craiglockhart_id
   # Find the id value for the stop 'Craiglockhart'.
   execute(<<-SQL)
+  SELECT
+    id
+  FROM
+    stops
+  WHERE
+    name = 'Craiglockhart'
   SQL
 end
 
 def lrt_stops
   # Give the id and the name for the stops on the '4' 'LRT' service.
   execute(<<-SQL)
+  SELECT
+    id, name
+  FROM
+    stops JOIN routes ON id = stop_id
+  WHERE
+    company = 'LRT' AND pos = 4
   SQL
 end
 
@@ -51,6 +67,17 @@ def connecting_routes
   # that link these stops have a count of 2. Add a HAVING clause to restrict
   # the output to these two routes.
   execute(<<-SQL)
+    SELECT
+      company, num, COUNT(*)
+    FROM
+      routes
+    WHERE
+      stop_id = 149 OR stop_id = 53
+    GROUP BY
+      company, num
+    HAVING
+      count(*) = 2
+    
   SQL
 end
 
@@ -73,6 +100,17 @@ def cl_to_lr
   # Craiglockhart, without changing routes. Change the query so that it
   # shows the services from Craiglockhart to London Road.
   execute(<<-SQL)
+      SELECT
+    a.company,
+    a.num,
+    a.stop_id,
+    b.company
+  FROM
+    routes a
+  JOIN
+    routes b ON (a.company = b.company AND a.num = b.num)
+  WHERE
+    a.stop_id = 53
   SQL
 end
 
