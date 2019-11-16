@@ -1,0 +1,23 @@
+/* PUT FLUID GRID CODE HERE */
+.col {
+  float:left;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.content {
+  content: "";
+  clear: both;
+  display: block;
+  background-color: seagreen;
+}
+
+.col-1-3 {
+  background-color: pink;
+  width: 33%;
+}
+
+.col-2-3 {
+  background-color: rebeccapurple;
+  width: 66%;
+}
