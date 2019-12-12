@@ -1,0 +1,24 @@
+h1 {
+  margin: 0;
+  padding: 30px;
+  text-align: center;
+  font-family: sans-serif;
+  font-weight: bold;
+  font-size: 72px;
+}
+
+.cosmic {
+  background-image: url("../images/cosmic.jpg");
+  background-size: cover;
+  color: white;
+}
+
+.draw {
+  background-image: url("../images/draw.jpg");
+  background-size: repeat;
+  color: white;
+}
+
+body {
+  height: 100vh;
+}
