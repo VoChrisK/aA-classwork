@@ -28,13 +28,17 @@ class Clock extends React.Component {
     let hours = this.state.date.getHours();
     let minutes = this.state.date.getMinutes();
     let seconds = this.state.date.getSeconds();
-    let day = this.state.date.getDay();
+    let day = this.state.date.getDate();
     let month = monthsOfTheYear[this.state.date.getMonth()];
     let year = this.state.date.getFullYear();
     let dayOfWeek = daysOfTheWeek[this.state.date.getUTCDay()];
 
     if (seconds.toString().length === 1) {
       seconds = "0" + seconds.toString();
+    }
+
+    if (minutes.toString().length === 1) {
+      minutes = "0" + minutes.toString();
     }
 
     if (hours > 12) {
@@ -51,15 +55,13 @@ class Clock extends React.Component {
 
     return (
       <div>
-        <div className="clock-widget">
-          <div className="clock">
-            <h1>Time:</h1> 
-            <h1>{hours}:{minutes}:{seconds} PDT</h1>
-          </div>
-          <div className="date">
-            <h1>Date:</h1> 
-            <h1>{dayOfWeek} {month} {day} {year}</h1>
-          </div>
+        <div className="clock">
+          <h1>Time:</h1> 
+          <h1>{hours}:{minutes}:{seconds} PDT</h1>
+        </div>
+        <div className="date">
+          <h1>Date:</h1> 
+          <h1>{dayOfWeek} {month} {day} {year}</h1>
         </div>
       </div>
     )
