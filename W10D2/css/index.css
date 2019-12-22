@@ -60,3 +60,17 @@
 .selected {
   border-bottom-color: lightblue;
 }
+
+.weather {
+  border: 2px solid black;
+  background-color: lightgreen;
+  width: 500px;
+  height: 100px;
+  margin: auto;
+}
+
+.weather > h2 {
+  text-align: center;
+  padding: 10px;
+  font-size: 32px;
+}
