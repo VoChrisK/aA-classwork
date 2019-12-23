@@ -1,0 +1,26 @@
+/* PHASE 3: Layout */
+
+.content {
+    width: 47%;
+    min-height: 500px;
+    margin: auto;
+    border: 1px solid gray;
+    border-top: none;
+    box-sizing: border-box;
+    background-color: whitesmoke;
+}
+
+.content-main {
+    width: 70%;
+    padding: 15px;
+    min-height: inherit;
+    float: right;
+}
+
+.content-sidebar {
+    width: 30%;
+    min-height: inherit;
+    border-right: 1px solid gray;
+    padding: 15px;
+    float: left;
+}
