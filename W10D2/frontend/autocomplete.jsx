@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
 class Autocomplete extends React.Component {
     constructor(props) {
@@ -18,7 +19,7 @@ class Autocomplete extends React.Component {
     }
 
     filterNames(e) {
-        let filteredNames = this.getFilteredArray(this.state.currentNames, e.currentTarget.value);
+        let filteredNames = this.getFilteredArray(this.props.names, e.currentTarget.value);
         this.setState({inputVal: e.target.value, currentNames: filteredNames});
     }
 
@@ -27,14 +28,20 @@ class Autocomplete extends React.Component {
     }
 
     autofill(e) {
-        let filterNames = this.getFilteredArray(this.state.currentNames, e.currentTarget.innerHTML);
+        let filterNames = this.getFilteredArray(this.props.names, e.currentTarget.innerHTML);
         this.setState({inputVal: e.currentTarget.innerHTML, currentNames: filterNames});
     }
 
     getFilteredArray(names, substr) {
-        return names.filter(name => {
+        const filteredArray = names.filter(name => {
             return name.toLowerCase().startsWith(substr.toLowerCase());
         })
+
+        if(filteredArray.length === 0) {
+            return ["No Matches"];
+        } else {
+            return filteredArray;
+        }
     }
 
     render() {
@@ -42,6 +49,8 @@ class Autocomplete extends React.Component {
             <div className="autocomplete-widget widgets">
                 <input type="text" onChange={ this.changeNames.bind(this) } value={this.state.inputVal}/>
                 <ul className="names">
+                <ReactCSSTransitionGroup transitionName="auto" transitionEnterTimeout={500} transitionLeaveTimeout={500}>
+
                     {
                         this.state.currentNames.map((name, idx) => {
                             return (
@@ -49,6 +58,7 @@ class Autocomplete extends React.Component {
                                 )
                             })
                         }
+                </ReactCSSTransitionGroup>
                 </ul>
             </div>
         )

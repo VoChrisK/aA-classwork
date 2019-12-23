@@ -5,6 +5,7 @@
 
 .widget-headers {
   margin-top: 30px;
+  margin-bottom: 20px;
   font-size: 32px;
   text-align: center;
 }
@@ -125,6 +126,6 @@
 .name {
   font-family: sans-serif;
   font-weight: bold;
-  padding: 2px 0px;
+  padding: 2px 5px;
   cursor: pointer;
 }
