@@ -1,0 +1,24 @@
+/* PHASE 4: Footer */
+
+.main-footer {
+    display: flex;
+    justify-content: space-between;
+    width: 900px;
+    margin: 0 auto;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-top: none;
+}
+
+.footer-list {
+    display: inherit;
+}
+
+.trademark-logo, .footer-list > li {
+    padding: 20px;
+    color: gray;
+}
+
+.footer-list > li:hover {
+    color: black;
+}
