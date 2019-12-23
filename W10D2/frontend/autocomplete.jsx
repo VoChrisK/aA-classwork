@@ -40,7 +40,7 @@ class Autocomplete extends React.Component {
     render() {
         return (
             <div className="autocomplete-widget widgets">
-                    <input type="text" onChange={ this.changeNames.bind(this) } value={this.state.inputVal}/>
+                <input type="text" onChange={ this.changeNames.bind(this) } value={this.state.inputVal}/>
                 <ul className="names">
                     {
                         this.state.currentNames.map((name, idx) => {
