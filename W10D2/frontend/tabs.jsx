@@ -18,15 +18,17 @@ class Tab extends React.Component {
 
   render() {
     return (
-      <div className="tabs">
-        <Header
-          onClick={this.updateIndex}
-          title={this.props.title}
-          index={this.state.index}/>
+      <div className="tab-widget widgets">
+        <div className="tabs">
+          <Header
+            onClick={this.updateIndex}
+            title={this.props.title}
+            index={this.state.index}/>
 
-          <article className="content">
-            <h1>{this.props.content[this.state.index]}</h1>
-          </article>
+            <article className="content">
+              <h1>{this.props.content[this.state.index]}</h1>
+            </article>
+        </div>
       </div>
     )
   }

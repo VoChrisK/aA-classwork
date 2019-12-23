@@ -54,7 +54,7 @@ class Clock extends React.Component {
     }
 
     return (
-      <div>
+      <div className="clock-widget widgets">
         <div className="clock">
           <h1>Time:</h1> 
           <h1>{hours}:{minutes}:{seconds} PDT</h1>

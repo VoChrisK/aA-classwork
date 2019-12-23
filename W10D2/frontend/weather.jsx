@@ -40,13 +40,13 @@ class Weather extends React.Component {
     render() {
         if(Object.keys(this.state.location).length === 0) {
             return(
-                <div className="weather">
+                <div className="weather-widget widgets">
                     <h2>Loading weather...</h2>
                 </div>
             )
         } else {
             return(
-                <div className="weather">
+                <div className="weather-widget widgets">
                     <h2>{this.state.location.name}</h2>
                     <h2>{this.convertKelvinToFahrenheit(this.state.location.main.temp)}</h2>
                 </div>
