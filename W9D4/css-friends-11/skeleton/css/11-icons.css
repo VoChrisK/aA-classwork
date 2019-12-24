@@ -1,0 +1,71 @@
+/* PHASE 11: Icons */
+
+.content-header > button {
+    display: flex;
+    justify-content: center;
+}
+
+[class*="icon-"] {
+    display: inline-block;
+    width: 25px;
+    height: 0;
+    background-image: url("../images/sprite.png");
+    background-size: 100%;
+    overflow: hidden;
+    padding-top: 25px;
+    margin: 0 7px;
+}
+
+[class*="icon-small-"] {
+    position: relative;
+    top: 6px;
+    width: 20px;
+    height: 20px;
+    padding-top: 0;
+    margin: 0 3px;
+}
+
+[class*="icon-"]:hover {
+    cursor: pointer;
+}
+
+.icon-comment:hover {
+    background-position-y: calc(-25px * 1);
+}
+
+.icon-reblog {
+    background-position-y: calc(-25px * 4);
+}
+.icon-reblog:hover {
+    background-position-y: calc(-25px * 5);
+}
+
+.icon-favorite {
+    background-position-y: calc(-25px * 2);
+}
+
+.icon-favorite:hover {
+    background-position-y: calc(-25px * 3);
+}
+
+.icon-small-wall {
+    background-position-y: calc(-20px * 9);
+}
+
+.icon-small-about {
+    background-position-y: calc(-20px * 7);
+}
+
+.icon-small-friends {
+    background-position-y: calc(-20px * 6);
+}
+
+.icon-small-photos {
+    background-position-y: calc(-20px * 8);
+}
+
+.icon-small-add-friend {
+    background-position-y: calc(-20px * 6);
+    top: 1px;
+    margin: 0;
+}
