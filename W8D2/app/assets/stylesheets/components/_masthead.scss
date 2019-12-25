@@ -8,7 +8,7 @@
 
 .language-nav {
 	position: absolute;
-	top: -15px;
+	top: -21px;
 	left: calc(50% - (177.78px/2));
 	background: white;
 	border: 1px solid $light-gray;
@@ -22,10 +22,10 @@
 	text-transform: uppercase;
 	font-family: $sans-serif;
 	font-size: 10px;
-	color: $dark-gray;
 }
 
 .language-nav ul {
+	padding-top: 5px;
 	display: flex;
 }
 
@@ -40,11 +40,6 @@
 	font-size: 11px;
 	margin-top: 10px;
 	margin-bottom: 10px;
-}
-
-.masthead-links li {
-	margin-left: 10px;
-	border-right: 1px solid $light-gray;
 }
 
 .masthead-links button {
@@ -65,10 +60,42 @@
 	margin-right: 10px;
 }
 
-.masthead-links i {
-	margin-right: 5px;
+.language-nav > ul > li {
+	padding: 0 5px;
 }
 
-.masthead-links strong {
+.language-nav > ul {
+	position: relative;
+	top: -1px;
+}
+
+.masthead > img {
+	margin-top: 30px;
+	width: 35%;
+}
+
+.masthead-list {
+	display: flex;
+}
+
+.masthead-list > li {
+	border-right: 1px solid lightgray;
+	padding: 0 10px;
+}
+
+.masthead-list > li:last-child {
+	border-right: none;
+}
+
+.masthead-list > li i {
+	margin-right: 5px;
+	text-decoration: none;
+}
+
+.masthead-list > li > strong {
 	color: green;
+}
+
+.masthead-list > li:nth-child(4):hover, .masthead-list > li:nth-child(5):hover, .masthead-list > li:nth-child(5):hover > strong {
+	color: gray;
 }

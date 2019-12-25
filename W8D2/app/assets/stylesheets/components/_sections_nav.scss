@@ -1,0 +1,21 @@
+.sections-list {
+    display: flex;
+    justify-content: center;
+    border-bottom: 1px solid lightgray;
+}
+
+.sections-list > li {
+    font-size: 16px;
+    padding: 15px;
+}
+
+.sections-list > li:hover > a {
+    text-decoration: none;
+    background-color: $light-gray;
+    border-radius: 5px;
+}
+
+.sections-list > li:last-child:hover > a {
+    text-decoration: underline;
+    background-color: transparent;
+}

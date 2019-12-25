@@ -31,71 +31,11 @@ button:hover {
 	// border-color:
 }
 
-/*
-	Header Rules
-*/
-
-hr {
-	border: 0;
-	height: 1px;
-	background-color: $light-gray;
+a:hover {
+	text-decoration: underline;
+	cursor: pointer;
 }
 
-.hr-top, .hr-bottom {
-	width: 100%;
-	margin: 0;
-}
-
-.hr-top {
-	height: 2px;
-	margin-bottom: 1px;
-}
-
-.main-nav {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	border: solid $lightest-gray 1px;
-}
-
-.left-nav > ul, .right-nav > ul {
-	display: flex;
-	flex-direction: row;
-}
-
-.left-nav > ul > li {
-	padding: 15px;
-}
-
-button[type=button] {
-	background-color: $light-blue;
-	color: white;
-	padding: 7px;
-	border-radius: 0.3em;
-	margin: 0 5px;
-}
-
-.main-nav li {
-	font-size: 20px;
-	font-family: sans-serif;
-	font-weight: bold;
-	text-decoration: none;
-}
-
-.fas.fa-cog {
-	font-size: 24px;
-}
-
-// add hover later
-
-// .language-nav {
-// 	flex-direction: row;
-// }
-
-.language-nav > ul > li {
-	padding: 0 5px;
-}
-
-.masthead > img {
-	width: 55%;
+.hidden {
+	display: none;
 }
