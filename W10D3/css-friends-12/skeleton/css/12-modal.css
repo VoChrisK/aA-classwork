@@ -1,0 +1,60 @@
+/* PHASE 12: Modal */
+
+.modal {
+    font-family: sans-serif;
+    display: none;
+}
+
+.modal-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 2;
+    background: rgba(0, 0, 0, 0.8);
+}
+
+.modal-form {
+    position: absolute;
+    left: 50%;
+    top: 15%;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    transform: translateX(-50%) translateY(50%);
+    z-index: 3;
+}
+
+.modal-form > h1 {
+    font-size: 32px;
+    font-weight: bold;
+}
+
+.modal-form > span {
+    font-weight: bold;
+    font-size: 24px;
+    float: right;
+}
+
+.modal-form > span:hover {
+    color: red;
+    cursor: pointer;
+}
+
+.modal-form > i {
+    display: block;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+#email, #password {
+    display: block;
+    font-weight: 700;
+    padding: 0 0 5px 0;
+    width: 300px;
+}
+
+.modal.is-open {
+    display: block;
+}
