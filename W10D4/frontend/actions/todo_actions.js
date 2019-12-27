@@ -10,3 +10,8 @@ export const receiveTodo = todo => ({
     type: "RECEIVE_TODO",
     todo
 });
+
+export const removeTodo = todo => ({
+    type: "REMOVE_TODO",
+    todo
+});

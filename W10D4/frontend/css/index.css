@@ -1,0 +1,14 @@
+.todo-list-item {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+}
+
+.todo-list-item > * {
+    margin: 0px 10px;
+}
+
+.todo-list-item > li {
+    list-style: none;
+    font-weight: bold;
+}
