@@ -1,20 +1,36 @@
 import React from 'react';
+import TodoDetailView from './todo_detail_view';
 
-const TodoListItem = ({todo, receiveTodo, removeTodo}) => {
+class TodoListItem extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            detail: false
+        };
+    }
 
-    const updateTodo = () => {
-        const updatedTodo = Object.assign({}, todo);
+    updateTodo() {
+        const updatedTodo = Object.assign({}, this.props.todo);
         updatedTodo.done = !updatedTodo.done;
         receiveTodo(updatedTodo);
     }
+
+    showDetails(event) {
+        event.preventDefault();
+        this.setState({detail: !this.state.detail});
+    }
     
-    return (
-        <div className="todo-list-item">
-            <li>Title: {todo.title}</li>
-            <button onClick={event => {removeTodo(todo)}}>Delete</button>
-            <button onClick={updateTodo}>{todo.done ? "Done" : "Undo"}</button>
-        </div>
-    );
+    render() {
+        return (
+            <div className="todo-items">
+                <div className="todo-list-item">
+                    <li onClick={this.showDetails.bind(this)}>Title: {this.props.todo.title}</li>
+                    <button onClick={this.updateTodo.bind(this)}>{this.props.todo.done ? "Done" : "Undo"}</button>
+                </div>
+                {this.state.detail ? <TodoDetailView todo={this.props.todo} /> : ""}
+            </div>
+        );
+    }
 };
 
 export default TodoListItem;
