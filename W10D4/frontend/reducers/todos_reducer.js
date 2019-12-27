@@ -1,43 +1,38 @@
-import RECEIVE_TODOS from "./../actions/todo_actions";
-import RECEIVE_TODO from "./../actions/todo_actions";
+import RECEIVE_TODOS from "./../actions/todo_action";
+import RECEIVE_TODO from "./../actions/todo_action";
 
 const initialState = {
-  1: {
-    id: 1,
-    title: "wash car",
-    body: "with soap",
-    done: false
-  },
-  2: {
-    id: 2,
-    title: "wash dog",
-    body: "with shampoo",
-    done: true
-  }
+    1: {
+        id: 1,
+        title: "wash car",
+        body: "with soap",
+        done: false
+    },
+    2: {
+        id: 2,
+        title: "wash dog",
+        body: "with shampoo",
+        done: true
+    }
 };
 
-//state will default to empty array ([]) in arguments
 const todosReducer = (state = initialState, action) => {
-  Object.freeze(state);
-  const nextState = Object.assign({}, state);
-
-  switch(action.type) {
-    case "RECEIVE_TODOS":
-      return convertArray({}, action.todos);
-    case "RECEIVE_TODO":
-      nextState[action.todo.id] = action.todo;
-      return nextState;
-    default:
-      return state;
-  }
+    Object.freeze(state);
+    let nextState;
+    switch(action.type) {
+        case "RECEIVE_TODOS":
+            nextState = {};
+            action.todos.forEach(todo => {
+                nextState[todo.id] = todo;
+            });
+            return nextState;
+        case "RECEIVE_TODO":
+            nextState = Object.assign({}, state);
+            nextState[action.todo.id] = action.todo;
+            return nextState;
+        default:
+            return state;
+    }
 };
-
-const convertArray = (nextState, todos) => {
-  for(let i = 0; i < todos.length; i++) {
-    nextState[todos[i].id] = todos[i];
-  }
-
-  return nextState;
-}
 
 export default todosReducer;
