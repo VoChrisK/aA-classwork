@@ -1,6 +1,21 @@
 import { RECEIVE_STEPS, RECEIVE_STEP, REMOVE_STEP } from './../actions/step_actions';
 
-const stepsReducer = (state = {}, action) => {
+const initialState = {
+    1: {
+        id: 1,
+        title: 'fill up soapy water',
+        done: false,
+        todo_id: 1
+    },
+    2: {
+        id: 2,
+        title: 'set up the bath',
+        done: false,
+        todo_id: 2
+    }
+};
+
+const stepsReducer = (state = initialState, action) => {
     Object.freeze(state);
     let nextState;
     switch(action.type) {

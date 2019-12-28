@@ -40,6 +40,7 @@ class TodoForm extends React.Component {
     render() {
         return (
             <form className="todo-form" onSubmit={this.addTodos}>
+                <h1>Create new Todo:</h1>
                 <div className="todo-title"> 
                     <label htmlFor="title">Title:</label>
                     <input type="text" id="title" onChange={this.updateTitle} value={this.state.title}/>

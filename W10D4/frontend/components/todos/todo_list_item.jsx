@@ -12,7 +12,7 @@ class TodoListItem extends React.Component {
     updateTodo() {
         const updatedTodo = Object.assign({}, this.props.todo);
         updatedTodo.done = !updatedTodo.done;
-        receiveTodo(updatedTodo);
+        this.props.receiveTodo(updatedTodo);
     }
 
     showDetails(event) {

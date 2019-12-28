@@ -5,5 +5,9 @@ export const allTodos = state => {
 
 export const stepsByTodoId = (state, todoId) => {
     const keys = Object.keys(state.steps);
-    return keys.filter(step => step.todo_id === todoId);
+    const newSteps = [];
+    keys.forEach(id => {
+        if(state.steps[id].todo_id === todoId) newSteps.push(state.steps[id]);
+    });
+    return newSteps;
 };
