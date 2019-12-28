@@ -4,7 +4,8 @@ import StepForm from './step_form';
 
 const StepList = ({ todoId, steps, receiveStep }) => (
     <div className="step-list">
-        <ul>
+        <strong>Steps:</strong>
+        <ul className="step-ul">
             {
                 steps.map((step, idx) => <StepListItemContainer key={idx} step={step} />)
 

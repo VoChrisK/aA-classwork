@@ -18,6 +18,7 @@ class TodoForm extends React.Component {
     addTodos(event) {
         event.preventDefault();
         let newTodo = Object.assign({}, this.state);
+        if(newTodo.title.length === 0) newTodo.title = "N/A"
         newTodo["id"] = uniqueId();
         this.props.receiveTodo(newTodo);
         this.resetState();
@@ -42,12 +43,12 @@ class TodoForm extends React.Component {
             <form className="todo-form" onSubmit={this.addTodos}>
                 <h1>Create new Todo:</h1>
                 <div className="todo-title"> 
-                    <label htmlFor="title">Title:</label>
+                    <label htmlFor="title">Title</label>
                     <input type="text" id="title" onChange={this.updateTitle} value={this.state.title}/>
                 </div>
                 <div className="todo-body">
-                    <label htmlFor="body">Body:</label>
-                    <input type="text" id="body" onChange={this.updateBody} value={this.state.body}/>
+                    <label htmlFor="body">Body</label>
+                    <textarea id="body" onChange={this.updateBody} value={this.state.body}></textarea>
                 </div>
                 <input type="submit" value="Add Todo!" className="todo-submit"/>
             </form>

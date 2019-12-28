@@ -31,10 +31,14 @@ class StepForm extends React.Component {
     render() {
         return (
             <form className="step-form" onSubmit={this.handleSubmit.bind(this)}>
-                <h1>Create New Step:</h1>
-                <label htmlFor="step-title">Title</label>
-                <input type="text" id="step-title" onChange={this.updateTitle.bind(this)} value={this.state.title}/>
-                <input type="submit" value="Add Step!"/>
+                <strong>Create New Step:</strong>
+                <div className="step-form-input">
+                    <label htmlFor="step-title">
+                        Title
+                        <input type="text" id="step-title" onChange={this.updateTitle.bind(this)} value={this.state.title}/>
+                    </label>
+                    <input type="submit" value="Add Step!"/>
+                </div>
             </form>
         );
     }

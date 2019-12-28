@@ -22,9 +22,9 @@ class TodoListItem extends React.Component {
     
     render() {
         return (
-            <div className="todo-items">
-                <div className="todo-list-item">
-                    <li onClick={this.showDetails.bind(this)}>Title: {this.props.todo.title}</li>
+            <div className="todo-list-item">
+                <div className="show-todo-item">
+                    <li onClick={this.showDetails.bind(this)} title={this.props.todo.title}>{this.props.todo.title}</li>
                     <button onClick={this.updateTodo.bind(this)}>{this.props.todo.done ? "Done" : "Undo"}</button>
                 </div>
                 {this.state.detail ? <TodoDetailView todo={this.props.todo} /> : ""}

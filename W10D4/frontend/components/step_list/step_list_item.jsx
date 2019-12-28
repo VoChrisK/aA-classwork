@@ -9,11 +9,13 @@ const StepListItem = ({step, receiveStep, removeStep}) => {
     };
 
     return (
-        <div className="step-list-item">
-            <h1>{step.title}</h1>
-            <button onClick={event => {removeStep(step)}}>Delete Step</button>
-            <button onClick={updateStep}>{step.done ? "Done" : "Undo"}</button>
-        </div>
+        <li className="step-list-item">
+            <h1 title={step.title}>{step.title}</h1>
+            <div className="buttons">
+                <button onClick={event => {removeStep(step)}}>Delete Step</button>
+                <button onClick={updateStep}>{step.done ? "Done" : "Undo"}</button>
+            </div>
+        </li>
     );
 }
 

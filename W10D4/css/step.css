@@ -1,0 +1,41 @@
+.step-ul {
+    counter-reset: list;
+}
+
+.step-list-item {
+    padding-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.step-list-item > h1 {
+    width: 60%;
+}
+
+.step-list-item > h1:before {
+    counter-increment: list;
+    content: counter(list) ". ";
+}
+
+.buttons > button {
+    margin-left: 10px;
+}
+
+.step-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-bottom: 3px ridge black;
+    margin-top: 25px;
+    padding-top: 25px;
+    padding-bottom: 25px;
+}
+
+.step-form-input {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 15px;
+}

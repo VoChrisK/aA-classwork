@@ -9,10 +9,9 @@ class TodoDetailView extends React.Component {
     render() {
         return (
             <div className="todo-detail">
-                <h1>{this.props.todo.body}</h1>
-                <h1>Steps:</h1>
+                <p className="description"><strong>Description:</strong> {this.props.todo.body}</p>
                 <StepListContainer todo_id={this.props.todo.id}/>
-                <button onClick={event => { this.props.removeTodo(this.props.todo) }}>Delete</button>
+                <button onClick={event => { this.props.removeTodo(this.props.todo) }} className="delete-todo">Delete Todo</button>
             </div>
         );
     }
