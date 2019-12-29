@@ -2,13 +2,12 @@
     /* If height is set to 100%, then any child that
     is bigger than the background will render outside of
     the background. Will fix later*/
-    /* height: 100%; */
-    height: 1300px;
+    height: 100%;
     background-image: url("./images/background.jpg");
     background-color: lightblue;
     background-size: cover;
     background-attachment: fixed;
-    filter: blur(3px);
+    filter: blur(5px);
 }
 
 #root {
@@ -41,4 +40,12 @@ input[type="text"], textarea {
     margin-left: 5px;
     font-size: 18px;
     background-color: rgb(247, 247, 247);
+}
+
+.done {
+    background-color: lightgreen;
+}
+
+.undo {
+    background-color: rgb(255, 32, 32);
 }

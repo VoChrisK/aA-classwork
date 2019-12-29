@@ -10,7 +10,7 @@ const initialState = {
     2: {
         id: 2,
         title: "wash dog",
-        body: "My dog is long overdue for a bath after a month. The final straw was him playing in the mud when it was raining. Also wash him using the new shampoo I bought yesterday.",
+        body: "My dog is long overdue for a bath after a month. The final straw was him playing in the mud while it was raining. Also wash him using the new shampoo I bought yesterday.",
         done: true
     }
 };

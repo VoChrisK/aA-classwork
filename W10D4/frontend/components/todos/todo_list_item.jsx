@@ -1,5 +1,6 @@
 import React from 'react';
-import TodoDetailView from './todo_detail_view';
+import TodoDetailViewContainer from './todo_detail_view_container';
+import resizeBackground from './../../util/resizeBackground';
 
 class TodoListItem extends React.Component {
     constructor(props) {
@@ -7,6 +8,10 @@ class TodoListItem extends React.Component {
         this.state = {
             detail: false
         };
+    }
+
+    componentDidUpdate() {
+        resizeBackground();
     }
 
     updateTodo() {
@@ -27,7 +32,7 @@ class TodoListItem extends React.Component {
                     <li onClick={this.showDetails.bind(this)} title={this.props.todo.title}>{this.props.todo.title}</li>
                     <button onClick={this.updateTodo.bind(this)}>{this.props.todo.done ? "Done" : "Undo"}</button>
                 </div>
-                {this.state.detail ? <TodoDetailView todo={this.props.todo} /> : ""}
+                {this.state.detail ? <TodoDetailViewContainer todo={this.props.todo} /> : ""}
             </div>
         );
     }

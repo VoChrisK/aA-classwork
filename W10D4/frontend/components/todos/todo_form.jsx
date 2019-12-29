@@ -50,7 +50,7 @@ class TodoForm extends React.Component {
                     <label htmlFor="body">Body</label>
                     <textarea id="body" onChange={this.updateBody} value={this.state.body}></textarea>
                 </div>
-                <input type="submit" value="Add Todo!" className="todo-submit"/>
+                <input type="submit" value="Add Todo!" className="todo-submit" />
             </form>
         );
     }

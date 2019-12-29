@@ -1,5 +1,6 @@
 import React from 'react';
 import uniqueId from './../../util/uniqueId';
+import resizeBackground from './../../util/resizeBackground';
 
 class StepForm extends React.Component {
     constructor(props) {
@@ -8,6 +9,10 @@ class StepForm extends React.Component {
             title: "",
             done: false
         };
+    }
+
+    componentDidUpdate() {
+        resizeBackground();
     }
 
     updateTitle(event) {
