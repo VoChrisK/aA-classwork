@@ -1,0 +1,55 @@
+body {
+    height: 100vh;
+}
+
+.background {
+    /* If height is set to 100%, then any child that
+    is bigger than the background will render outside of
+    the background. Will fix later*/
+    height: 100%;
+    background-image: url("./images/background.jpg");
+    background-color: lightblue;
+    background-size: cover;
+    background-attachment: fixed;
+    filter: blur(5px);
+}
+
+#root {
+    width: 100%;
+    position: absolute;
+    top: 1px;
+}
+
+button, input[type="submit"] {
+    background-color: black;
+    color: white;
+    border: 1px solid gray;
+    border-radius: 5px;
+    font-size: 18px;
+    padding: 5px;
+    cursor: pointer;
+}
+
+.todo-detail, .step-form, .todo-form {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 20px;
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 3px ridge black;
+}
+
+input[type="text"], textarea {
+    width: 355px;
+    height: 30px;
+    margin-left: 5px;
+    font-size: 18px;
+    background-color: rgb(247, 247, 247);
+}
+
+.done {
+    background-color: lightgreen;
+}
+
+.undo {
+    background-color: rgb(255, 32, 32);
+}

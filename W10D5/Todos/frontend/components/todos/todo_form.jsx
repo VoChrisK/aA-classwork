@@ -1,45 +1,59 @@
-import { uniqueId } from '../../util/id_generator'
 import React from 'react';
+import uniqueId from './../../util/uniqueId';
 
 class TodoForm extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      title: "",
-      body: "",
-      done: false
-    };
+    constructor(props) {
+        super(props);
+        this.state = {
+            title: "",
+            body: "",
+            done: false
+        };
 
-    this.handleSubmit = this.handleSubmit.bind(this);
-  }
+        this.updateTitle = this.updateTitle.bind(this);
+        this.updateBody = this.updateBody.bind(this);
+        this.addTodos = this.addTodos.bind(this);
+    }
 
-  update(property) {
-    return e => this.setState({ [property]: e.target.value });
-  }
+    addTodos(event) {
+        event.preventDefault();
+        let newTodo = Object.assign({}, this.state);
+        if(newTodo.title.length === 0) newTodo.title = "N/A"
+        newTodo["id"] = uniqueId();
+        this.props.receiveTodo(newTodo);
+        this.resetState();
+    }
 
-  handleSubmit(e) {
-    e.preventDefault();
-    const todo = Object.assign({}, this.state, { id: uniqueId() });
-    this.props.receiveTodo(todo);
-    this.setState({
-      title: "",
-      body: ""
-    }); // reset form
-  }
+    updateTitle(event) {
+        event.preventDefault();
+        this.setState({title: event.target.value});
+    }
 
-  render() {
-    return (
-      <form className="todo-form" onSubmit={this.handleSubmit}>
-        <label>Title:
-          <input value={this.state.title} onChange={this.update('title')} required />
-        </label>
-        <label>Body:
-          <textarea cols='20' value={this.state.body} rows='5' onChange={this.update('body')} required></textarea>
-        </label>
-        <button>Create Todo!</button>
-      </form>
-    );
-  }
-};
+    updateBody(event) {
+        event.preventDefault();
+        this.setState({body: event.target.value});
+    }
+
+    resetState() {
+        this.setState({title: "", body: "", done: false});
+    }
+
+    render() {
+        return (
+            <form className="todo-form" onSubmit={this.addTodos}>
+                <h1>Create new Todo:</h1>
+                <div className="todo-title"> 
+                    <label htmlFor="title">Title</label>
+                    <input type="text" id="title" onChange={this.updateTitle} value={this.state.title}/>
+                </div>
+                <div className="todo-body">
+                    <label htmlFor="body">Body</label>
+                    <textarea id="body" onChange={this.updateBody} value={this.state.body}></textarea>
+                </div>
+                <input type="submit" value="Add Todo!" className="todo-submit" />
+            </form>
+        );
+    }
+}
 
 export default TodoForm;

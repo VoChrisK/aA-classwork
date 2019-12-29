@@ -1,11 +1,13 @@
-const allTodos = (state) => {
-  let todos = state.todos;
-  // let todosArr = new Array(state.todos.length);
-  return Object.keys(todos).map(key => { //do .sort() later to sort keys
-    //if you do todosArr[key] instead, your index 
-    //0 will be undefined and you will have an array of length 3
-    return todos[key]; 
-  });
-}
+export const allTodos = state => {
+    const keys = Object.keys(state.todos);
+    return keys.map(id => state.todos[id]);
+};
 
-export default allTodos;
+export const stepsByTodoId = (state, todoId) => {
+    const keys = Object.keys(state.steps);
+    const newSteps = [];
+    keys.forEach(id => {
+        if(state.steps[id].todo_id === todoId) newSteps.push(state.steps[id]);
+    });
+    return newSteps;
+};

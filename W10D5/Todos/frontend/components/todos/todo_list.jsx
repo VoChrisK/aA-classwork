@@ -1,22 +1,32 @@
 import React from 'react';
 import TodoListItem from './todo_list_item';
 import TodoForm from './todo_form';
+import resizeBackground from './../../util/resizeBackground';
 
-const listTodos = (props) => {
-  return (
-    <div>
-      <h1>All the todos here!</h1>
-      <ul className="todo-list">
-        {
-          props.todos.map(todo => <TodoListItem receiveTodo={props.receiveTodo} removeTodo={props.removeTodo} todo={todo} key={todo.id} />)
-        }
-      </ul>
-      <br />
-      {
-        <TodoForm receiveTodo={props.receiveTodo} />
-      }
-    </div>
-  );
+class TodoList extends React.Component {
+    constructor(props) {
+        super(props);
+    }
+
+    componentDidUpdate() {
+        resizeBackground(); 
+    }
+
+    render() {
+        return (
+            <div className="todo-list">
+                <div className="todos-list">
+                    <h1>All your Todos:</h1>
+                    <ul className="todo-ul">
+                        {
+                            this.props.todos.map((todo,idx) => <TodoListItem key={idx} todo={todo} receiveTodo={this.props.receiveTodo} removeTodo={this.props.removeTodo} />)
+                        }
+                    </ul>
+                </div>
+                <TodoForm receiveTodo={this.props.receiveTodo} />
+            </div>
+        )
+    }
 }
 
-export default listTodos;
+export default TodoList;

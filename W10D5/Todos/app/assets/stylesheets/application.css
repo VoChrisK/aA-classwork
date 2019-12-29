@@ -13,3 +13,8 @@
  *= require_tree .
  *= require_self
  */
+
+ @import 'css/reset.css';
+ @import 'css/index.css';
+ @import 'css/todo.css';
+ @import 'css/step.css';
