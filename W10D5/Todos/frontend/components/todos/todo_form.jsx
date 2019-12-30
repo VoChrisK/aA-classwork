@@ -7,7 +7,7 @@ class TodoForm extends React.Component {
         this.state = {
             title: "",
             body: "",
-            done: false
+            done: true
         };
 
         this.updateTitle = this.updateTitle.bind(this);
@@ -18,9 +18,8 @@ class TodoForm extends React.Component {
     addTodos(event) {
         event.preventDefault();
         let newTodo = Object.assign({}, this.state);
-        if(newTodo.title.length === 0) newTodo.title = "N/A"
         newTodo["id"] = uniqueId();
-        this.props.receiveTodo(newTodo);
+        this.props.createTodo(newTodo);
         this.resetState();
     }
 
@@ -35,7 +34,7 @@ class TodoForm extends React.Component {
     }
 
     resetState() {
-        this.setState({title: "", body: "", done: false});
+        this.setState({title: "", body: "", done: true});
     }
 
     render() {

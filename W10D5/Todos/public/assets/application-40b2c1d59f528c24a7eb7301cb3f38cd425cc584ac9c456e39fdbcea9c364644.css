@@ -1,0 +1,283 @@
+body {
+    height: 100vh;
+}
+
+.background {
+    /* If height is set to 100%, then any child that
+    is bigger than the background will render outside of
+    the background. Will fix later*/
+    height: 100%;
+    background-image: url("./images/background.jpg");
+    background-color: lightblue;
+    background-size: cover;
+    background-attachment: fixed;
+    filter: blur(5px);
+}
+
+#root {
+    width: 100%;
+    position: absolute;
+    top: 1px;
+}
+
+button, input[type="submit"] {
+    background-color: black;
+    color: white;
+    border: 1px solid gray;
+    border-radius: 5px;
+    font-size: 18px;
+    padding: 5px;
+    cursor: pointer;
+}
+
+.todo-detail, .step-form, .todo-form {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 20px;
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 3px ridge black;
+}
+
+input[type="text"], textarea {
+    width: 355px;
+    height: 30px;
+    margin-left: 5px;
+    font-size: 18px;
+    background-color: rgb(247, 247, 247);
+}
+
+.done {
+    background-color: lightgreen;
+}
+
+.undo {
+    background-color: rgb(255, 32, 32);
+}
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+button:focus {
+	outline: none;
+}
+.step-ul {
+    counter-reset: list;
+}
+
+.step-list-item {
+    padding-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.step-list-item > h1 {
+    width: 60%;
+}
+
+.step-list-item > h1:before {
+    counter-increment: list;
+    content: counter(list) ". ";
+}
+
+.buttons > button {
+    margin-left: 10px;
+}
+
+.step-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-bottom: 3px ridge black;
+    margin-top: 25px;
+    padding-top: 25px;
+    padding-bottom: 25px;
+}
+
+.step-form-input {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 15px;
+}
+.todo-list {
+    display: flex;
+    justify-content: space-around;
+    overflow: hidden;
+}
+
+.todo-ul {
+    list-style: none;
+}
+
+.todos-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;
+}
+
+.todos-list > h1 {
+    font-size: 48px;
+    font-weight: bold;
+    font-family: sans-serif;
+    text-decoration: underline;
+    color: white;
+    margin-bottom: 25px;
+}
+
+.todo-list-item {
+    width: 500px;
+    background-color: white;
+    border: 2px solid black;
+    border-radius: 7px;
+    box-shadow: 0 1px 8px black;
+    padding: 15px;
+    margin: 10px 0;
+}
+
+.show-todo-item {
+    display: flex;
+    justify-content: space-between;
+}
+
+.show-todo-item > li {
+    font-size: 32px;
+    font-family: 'Indie Flower', sans-serif;
+    overflow: hidden;
+    padding: 7px;
+}
+
+.show-todo-item > li:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.todo-detail strong {
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.todo-detail > * {
+    margin: 10px 0;
+}
+
+.delete-todo {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.todo-form {
+    margin-top: 3%;
+    padding: 10px;
+    width: 450px;
+    height: 325px;
+    background-color: white;
+    border: 2px solid black;
+    border-radius: 7px;
+    box-shadow: 0 1px 8px black;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.todo-form > h1 {
+    font-size: 36px;
+    border-bottom: 3px ridge black;
+    padding: 15px 0;
+    margin-bottom: 15px;
+}
+
+.todo-title, .todo-body {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 10px;
+}
+
+.todo-body {
+    border-bottom: 3px ridge black;
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+}
+
+.todo-body > textarea {
+    height: 100px;
+    resize: none;
+}
+
+.todo-submit {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 25%;
+}
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+
+
+ */
+
+
+ @import 'css/reset.css';
+ @import 'css/index.css';
+ @import 'css/todo.css';
+ @import 'css/step.css';
