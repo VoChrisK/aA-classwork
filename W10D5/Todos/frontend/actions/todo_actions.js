@@ -21,10 +21,10 @@ export const fetchTodos = () => dispatch => {
 };
 
 export const createTodo = todo => dispatch => {
+    console.log(TodoApiUtils.createTodo(todo).then(
+        () => dispatch(receiveTodo(todo))).fail(errors => dispatch(receiveErrors(errors))));
     return TodoApiUtils.createTodo(todo).then(
-        () => dispatch(receiveTodo(todo)),
-        errors => dispatch(receiveErrors(errors))
-    );
+        () => dispatch(receiveTodo(todo))).fail(errors => dispatch(receiveErrors(errors)));
 };
 
 export const updateTodo = todo => dispatch => {

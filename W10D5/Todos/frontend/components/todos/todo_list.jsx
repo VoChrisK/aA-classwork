@@ -13,7 +13,8 @@ class TodoList extends React.Component {
     }
 
     componentDidUpdate() {
-        resizeBackground(); 
+        this.props.fetchTodos();
+        resizeBackground();
     }
 
     render() {
@@ -23,7 +24,7 @@ class TodoList extends React.Component {
                     <h1>All your Todos:</h1>
                     <ul className="todo-ul">
                         {
-                            this.props.todos.map((todo,idx) => <TodoListItem key={idx} todo={todo} receiveTodo={this.props.receiveTodo} removeTodo={this.props.removeTodo} updateTodo={this.props.updateTodo} />)
+                            this.props.todos.map((todo,idx) => <TodoListItem key={idx} todo={todo} receiveTodo={this.props.receiveTodo} removeTodo={this.props.removeTodo} updateTodo={this.props.updateTodo} idx={idx} />)
                         }
                     </ul>
                 </div>

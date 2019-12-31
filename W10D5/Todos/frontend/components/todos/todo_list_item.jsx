@@ -10,7 +10,12 @@ class TodoListItem extends React.Component {
         };
     }
 
+    componentDidMount() {
+        this.changeColor();
+    }
+
     componentDidUpdate() {
+        this.changeColor();
         resizeBackground();
     }
 
@@ -18,6 +23,16 @@ class TodoListItem extends React.Component {
         const updatedTodo = Object.assign({}, this.props.todo);
         updatedTodo.done = !updatedTodo.done;
         this.props.updateTodo(updatedTodo);
+    }
+
+    changeColor() {
+        const todoListItem = document.getElementsByClassName("todo-list-item")[this.props.idx];
+        const doneButton = document.getElementsByClassName("todo-item-done")[this.props.idx];
+        if(doneButton.innerHTML === "Undo") {
+            todoListItem.classList.add("done");
+        } else {
+            todoListItem.classList.remove("done");
+        }
     }
 
     showDetails(event) {
@@ -30,7 +45,7 @@ class TodoListItem extends React.Component {
             <div className="todo-list-item">
                 <div className="show-todo-item">
                     <li onClick={this.showDetails.bind(this)} title={this.props.todo.title}>{this.props.todo.title}</li>
-                    <button onClick={this.updateTodo.bind(this)}>{this.props.todo.done ? "Done" : "Undo"}</button>
+                    <button className="todo-item-done" onClick={this.updateTodo.bind(this)}>{this.props.todo.done ? "Done" : "Undo"}</button>
                 </div>
                 {this.state.detail ? <TodoDetailViewContainer todo={this.props.todo} /> : ""}
             </div>
